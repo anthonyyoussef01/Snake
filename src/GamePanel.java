@@ -36,7 +36,14 @@ public class GamePanel extends JPanel implements ActionListener {
         startGame();
     }
 
+    /*
+        This method starts the game by setting the running variable to true, creating a new apple, and starting the timer
+    */
     public void startGame() {
+        newApple();
+        running = true;
+        timer = new Timer(DELAY, this);
+        timer.start();
     }
 
     public void paintComponent(Graphics g) {
