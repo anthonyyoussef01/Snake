@@ -22,7 +22,18 @@ public class GamePanel extends JPanel implements ActionListener {
     Timer timer;
     Random random;
 
+    /*
+        This is the constructor for the GamePanel class
+        It sets the preferred size of the panel to the screen width and height, sets the background color to black,
+        sets the panel to be focusable, adds a key listener to the panel, and starts the game
+    */
     GamePanel() {
+        random = new Random();
+        this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
+        this.setBackground(Color.black);
+        this.setFocusable(true);
+        this.addKeyListener(new MyKeyAdapter());
+        startGame();
     }
 
     public void startGame() {
