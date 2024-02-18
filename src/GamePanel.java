@@ -17,7 +17,7 @@ public class GamePanel extends JPanel implements ActionListener {
     int applesEaten;
     int appleX;
     int appleY;
-    char direction = 'R';
+    char direction = 'F';
     boolean running = false;
     Timer timer;
     Random random;
@@ -91,16 +91,16 @@ public class GamePanel extends JPanel implements ActionListener {
         }
 
         switch (direction) {
-            case 'U':
+            case 'E':
                 y[0] = y[0] - UNIT_SIZE;
                 break;
             case 'D':
                 y[0] = y[0] + UNIT_SIZE;
                 break;
-            case 'L':
+            case 'S':
                 x[0] = x[0] - UNIT_SIZE;
                 break;
-            case 'R':
+            case 'F':
                 x[0] = x[0] + UNIT_SIZE;
                 break;
         }
@@ -117,6 +117,11 @@ public class GamePanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (running) {
+            move();
+            checkApple();
+            checkCollisions();
+        }
     }
 
     public class MyKeyAdapter extends KeyAdapter {
