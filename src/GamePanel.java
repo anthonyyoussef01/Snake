@@ -46,10 +46,22 @@ public class GamePanel extends JPanel implements ActionListener {
         timer.start();
     }
 
+    /*
+        This method draws the grid on the panel
+    */
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        draw(g);
     }
 
+    /*
+        This method draws a grid on the panel to help visualize the game
+    */
     public void draw(Graphics g) {
+        for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
+            g.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, SCREEN_HEIGHT);
+            g.drawLine(0, i * UNIT_SIZE, SCREEN_WIDTH, i * UNIT_SIZE);
+        }
     }
 
     public void newApple() {
