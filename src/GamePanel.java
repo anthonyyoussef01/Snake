@@ -106,7 +106,15 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    /*
+        This method checks if the snake has eaten an apple
+    */
     public void checkApple() {
+        if ((x[0] == appleX) && (y[0] == appleY)) {
+            bodyParts++;
+            applesEaten++;
+            newApple();
+        }
     }
 
     /*
@@ -159,6 +167,10 @@ public class GamePanel extends JPanel implements ActionListener {
         repaint();
     }
 
+    /*
+        This is the inner class for the key adapter
+        It listens for key presses and changes the direction of the snake accordingly
+    */
     public class MyKeyAdapter extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
