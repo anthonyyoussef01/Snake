@@ -290,6 +290,10 @@ public class GamePanel extends JPanel implements ActionListener {
                     }
                     running = !running;
                     break;
+                // if escape is pressed, the game will exit
+                case KeyEvent.VK_ESCAPE:
+                    System.exit(0);
+                    break;
             }
         }
     }
