@@ -177,6 +177,12 @@ public class GamePanel extends JPanel implements ActionListener {
         FontMetrics metrics2 = getFontMetrics(g.getFont());
         g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics2.stringWidth("Score: " + applesEaten)) / 2,
                 g.getFont().getSize());
+        // Add a restart message
+        g.setColor(Color.red);
+        g.setFont(new Font("Ink Free", Font.BOLD, 40));
+        FontMetrics metrics3 = getFontMetrics(g.getFont());
+        g.drawString("Press SPACE to RESTART", (SCREEN_WIDTH - metrics3.stringWidth("Press SPACE to RESTART")) / 2,
+                SCREEN_HEIGHT / 2 + 100);
     }
 
     @Override
@@ -219,6 +225,12 @@ public class GamePanel extends JPanel implements ActionListener {
                     if (direction != 'U') {
                         direction = 'D';
                         System.out.println("down");
+                    }
+                    break;
+                // if space is pressed, the game will restart
+                case KeyEvent.VK_SPACE:
+                    if (!running) {
+                        startGame();
                     }
                     break;
             }
