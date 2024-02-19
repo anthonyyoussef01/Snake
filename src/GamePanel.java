@@ -44,6 +44,13 @@ public class GamePanel extends JPanel implements ActionListener {
         running = true;
         timer = new Timer(DELAY, this);
         timer.start();
+        bodyParts = 6;
+        applesEaten = 0;
+        direction = 'R';
+        for (int i = 0; i < bodyParts; i++) {
+            x[i] = 0;
+            y[i] = 0;
+        }
     }
 
     /*
