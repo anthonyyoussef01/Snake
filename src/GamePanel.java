@@ -21,6 +21,7 @@ public class GamePanel extends JPanel implements ActionListener {
     boolean running = false;
     Timer timer;
     Random random;
+    int highScore = 0;
 
     /*
         This is the constructor for the GamePanel class
@@ -167,6 +168,15 @@ public class GamePanel extends JPanel implements ActionListener {
         if (!running) {
             timer.stop();
         }
+
+        // If the game is over, stop the timer
+        if (!running) {
+            timer.stop();
+            // Update high score if current score is greater
+            if (applesEaten > highScore) {
+                highScore = applesEaten;
+            }
+        }
     }
 
     /*
@@ -184,6 +194,12 @@ public class GamePanel extends JPanel implements ActionListener {
         FontMetrics metrics2 = getFontMetrics(g.getFont());
         g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics2.stringWidth("Score: " + applesEaten)) / 2,
                 g.getFont().getSize());
+        // High score text
+        g.setColor(Color.red);
+        g.setFont(new Font("Ink Free", Font.BOLD, 40));
+        FontMetrics metrics4 = getFontMetrics(g.getFont());
+        g.drawString("High Score: " + highScore, (SCREEN_WIDTH - metrics4.stringWidth("High Score: " + highScore)) / 2,
+                SCREEN_HEIGHT / 2 - 210);
         // Add a restart message
         g.setColor(Color.red);
         g.setFont(new Font("Ink Free", Font.BOLD, 40));
