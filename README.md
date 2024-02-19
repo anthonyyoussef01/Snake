@@ -26,11 +26,9 @@ accessed even after the game is closed.
 
 Here are some screenshots of the game:
 
-![Game Play](ReadMe/SC1.png)
-
-![Game Play](ReadMe/SC2.png)
-
-![Game Over](ReadMe/SC3.png)
+<img src="ReadMe/SC1.png" alt="Game Play" height="250px">
+<img src="ReadMe/SC2.png" alt="Game Play" height="250px">
+<img src="ReadMe/SC3.png" alt="Game Over" height="250px">
 
 ## Contributing
 
