@@ -1,8 +1,11 @@
 <img src="ReadMe/Banner.png" alt="Banner" width="100%">
 
 # Snake Game
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Swing](https://img.shields.io/badge/Swing-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 
 This is a simple implementation of the classic Snake Game in Java. The game is built using Java Swing for the GUI.
+
 
 ## Game Features
 
