@@ -1,3 +1,5 @@
+<img src="ReadMe/Banner.png" alt="Banner" width="100%">
+
 # Snake Game
 
 This is a simple implementation of the classic Snake Game in Java. The game is built using Java Swing for the GUI.
