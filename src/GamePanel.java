@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
 import java.util.Random;
+import java.io.*;
 
 public class GamePanel extends JPanel implements ActionListener {
     // Global variables
@@ -34,6 +34,7 @@ public class GamePanel extends JPanel implements ActionListener {
         this.setBackground(Color.black);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
+        loadHighScore();
         startGame();
     }
 
@@ -176,6 +177,7 @@ public class GamePanel extends JPanel implements ActionListener {
             if (applesEaten > highScore) {
                 highScore = applesEaten;
             }
+            saveHighScore();
         }
     }
 
@@ -206,6 +208,29 @@ public class GamePanel extends JPanel implements ActionListener {
         FontMetrics metrics3 = getFontMetrics(g.getFont());
         g.drawString("Press SPACE to RESTART", (SCREEN_WIDTH - metrics3.stringWidth("Press SPACE to RESTART")) / 2,
                 SCREEN_HEIGHT / 2 + 100);
+    }
+
+    public void saveHighScore() {
+        try {
+            FileWriter writer = new FileWriter("highscore.txt");
+            writer.write(String.valueOf(highScore));
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadHighScore() {
+        try {
+            File file = new File("highscore.txt");
+            if (file.exists()) {
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                highScore = Integer.parseInt(reader.readLine());
+                reader.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
