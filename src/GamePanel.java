@@ -281,6 +281,15 @@ public class GamePanel extends JPanel implements ActionListener {
                         startGame();
                     }
                     break;
+                // if p is pressed, the game will pause or resume
+                case KeyEvent.VK_P:
+                    if (running) {
+                        timer.stop();
+                    } else {
+                        timer.start();
+                    }
+                    running = !running;
+                    break;
             }
         }
     }
