@@ -254,25 +254,21 @@ public class GamePanel extends JPanel implements ActionListener {
                 case KeyEvent.VK_LEFT:
                     if (direction != 'R') {
                         direction = 'L';
-                        System.out.println("left");
                     }
                     break;
                 case KeyEvent.VK_RIGHT:
                     if (direction != 'L') {
                         direction = 'R';
-                        System.out.println("right");
                     }
                     break;
                 case KeyEvent.VK_UP:
                     if (direction != 'D') {
                         direction = 'U';
-                        System.out.println("up");
                     }
                     break;
                 case KeyEvent.VK_DOWN:
                     if (direction != 'U') {
                         direction = 'D';
-                        System.out.println("down");
                     }
                     break;
                 // if space is pressed, the game will restart
@@ -293,6 +289,18 @@ public class GamePanel extends JPanel implements ActionListener {
                 // if escape is pressed, the game will exit
                 case KeyEvent.VK_ESCAPE:
                     System.exit(0);
+                    break;
+                // if s is pressed, the snake will slow down
+                case KeyEvent.VK_S:
+                    if (DELAY < 150) {
+                        timer.setDelay(DELAY + 15);
+                    }
+                    break;
+                // if d is pressed, the snake will speed up
+                case KeyEvent.VK_D:
+                    if (DELAY > 20) {
+                        timer.setDelay(DELAY - 15);
+                    }
                     break;
             }
         }
