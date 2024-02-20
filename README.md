@@ -12,6 +12,7 @@ This is a simple implementation of the classic Snake Game in Java. The game is b
 ## Game Features
 
 - The game starts with a small snake that grows as it eats apples.
+- The game can be played using the arrow keys.
 - The game ends when the snake collides with itself or the borders of the game panel.
 - The game keeps track of the score which is the number of apples eaten.
 - The game can be restarted by pressing the 'Space bar' key after the game ends.
@@ -20,13 +21,7 @@ accessed even after the game is closed.
 - The game can be paused and resumed by pressing the 'P' key.
 - The game can be exited by pressing the 'Esc' key.
 - The game speed can be controlled by pressing the 'd' key to increase the speed and the 's' key to decrease the speed.
-- The game is tested using JUnit 5.
-
-## How to Run the Game
-
-1. Clone this repository to your local machine.
-2. Open the project in your preferred Java IDE (like IntelliJ IDEA).
-3. Run the `SnakeGame.java` file to start the game.
+- The game can be played in full screen mode by pressing the 'F' key.
 
 ## Screenshots
 
@@ -35,6 +30,16 @@ Here are some screenshots of the game:
 <img src="ReadMe/SC1.png" alt="Game Play" height="250px">
 <img src="ReadMe/SC2.png" alt="Game Play" height="250px">
 <img src="ReadMe/SC3.png" alt="Game Over" height="250px">
+
+## How to Run the Game
+
+1. Clone this repository to your local machine.
+2. Open the project in your preferred Java IDE (like IntelliJ IDEA).
+3. Run the `SnakeGame.java` file in the SnakeGame package in the `src` folder to start the game.
+
+## Testing
+
+- The game is tested using JUnit 5.
 
 ## Contributing
 
