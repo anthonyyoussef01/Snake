@@ -397,6 +397,14 @@ public class GamePanel extends JPanel implements ActionListener {
                         gd.setFullScreenWindow(null);
                         SCREEN_WIDTH = 600;
                         SCREEN_HEIGHT = 600;
+                        // Ensure the snake's position is within the screen bounds
+                        for (int i = 0; i < bodyParts; i++) {
+                            x[i] = Math.min(x[i], SCREEN_WIDTH - UNIT_SIZE);
+                            y[i] = Math.min(y[i], SCREEN_HEIGHT - UNIT_SIZE);
+                        }
+                        // Ensure the apple's position is within the screen bounds
+                        appleX = Math.min(appleX, SCREEN_WIDTH - UNIT_SIZE);
+                        appleY = Math.min(appleY, SCREEN_HEIGHT - UNIT_SIZE);
                     }
                     break;
             }
