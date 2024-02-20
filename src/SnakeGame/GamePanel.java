@@ -7,8 +7,8 @@ import java.io.*;
 
 public class GamePanel extends JPanel implements ActionListener {
     // Global variables
-    static final int SCREEN_WIDTH = 600;
-    static final int SCREEN_HEIGHT = 600;
+    static int SCREEN_WIDTH = 600;
+    static int SCREEN_HEIGHT = 600;
     static final int UNIT_SIZE = 25;
     static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / UNIT_SIZE;
     static final int DELAY = 75;
@@ -384,6 +384,19 @@ public class GamePanel extends JPanel implements ActionListener {
                 case KeyEvent.VK_D:
                     if (DELAY > 20) {
                         timer.setDelay(DELAY - 15);
+                    }
+                    break;
+                // if f is pressed, the game will go full screen
+                case KeyEvent.VK_F:
+                    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+                    if (gd.getFullScreenWindow() == null) {
+                        gd.setFullScreenWindow((Window) SwingUtilities.getRoot(GamePanel.this));
+                        SCREEN_WIDTH = gd.getDisplayMode().getWidth();
+                        SCREEN_HEIGHT = gd.getDisplayMode().getHeight();
+                    } else {
+                        gd.setFullScreenWindow(null);
+                        SCREEN_WIDTH = 600;
+                        SCREEN_HEIGHT = 600;
                     }
                     break;
             }
