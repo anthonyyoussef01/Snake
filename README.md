@@ -3,6 +3,7 @@
 # Snake Game
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Swing](https://img.shields.io/badge/Swing-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
+![JUnit](https://img.shields.io/badge/JUnit-%23ED8B00.svg?style=for-the-badge&logo=junit5&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-%23ED8B00.svg?style=for-the-badge)
 
 This is a simple implementation of the classic Snake Game in Java. The game is built using Java Swing for the GUI.
@@ -19,6 +20,7 @@ accessed even after the game is closed.
 - The game can be paused and resumed by pressing the 'P' key.
 - The game can be exited by pressing the 'Esc' key.
 - The game speed can be controlled by pressing the 'd' key to increase the speed and the 's' key to decrease the speed.
+- The game is tested using JUnit 5.
 
 ## How to Run the Game
 
