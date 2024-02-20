@@ -117,6 +117,9 @@ public class GamePanel extends JPanel implements ActionListener {
     public void setAppleY(int appleY) {
         this.appleY = appleY;
     }
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
+    }
 
 
     /*

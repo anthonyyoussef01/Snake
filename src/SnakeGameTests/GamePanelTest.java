@@ -110,4 +110,14 @@ public class GamePanelTest {
         assertEquals(initialY, gamePanel.getSnakeY()[0]);
         assertTrue(gamePanel.isRunning());
     }
+
+    @Test
+    public void saveAndLoadHighScoreShouldPersistHighScore() {
+        int expectedHighScore = 37;
+        gamePanel.setHighScore(expectedHighScore);
+        gamePanel.saveHighScore();
+        gamePanel.setHighScore(10);
+        gamePanel.loadHighScore();
+        assertEquals(expectedHighScore, gamePanel.getHighScore());
+    }
 }
