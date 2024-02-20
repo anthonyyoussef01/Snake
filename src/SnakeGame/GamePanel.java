@@ -1,3 +1,4 @@
+package SnakeGame;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -28,7 +29,7 @@ public class GamePanel extends JPanel implements ActionListener {
         It sets the preferred size of the panel to the screen width and height, sets the background color to black,
         sets the panel to be focusable, adds a key listener to the panel, and starts the game
     */
-    GamePanel() {
+    public GamePanel() {
         random = new Random();
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
         this.setBackground(Color.black);
@@ -37,6 +38,86 @@ public class GamePanel extends JPanel implements ActionListener {
         loadHighScore();
         startGame();
     }
+
+    // GETTERS:
+    // Global variables
+    public int getScreenWidth() {
+        return SCREEN_WIDTH;
+    }
+    public int getScreenHeight() {
+        return SCREEN_HEIGHT;
+    }
+    public int getUnitSize() {
+        return UNIT_SIZE;
+    }
+    public int getGameUnits() {
+        return GAME_UNITS;
+    }
+    public int getDelay() {
+        return DELAY;
+    }
+    // Local variables
+    public int[] getSnakeX() {
+        return x.clone();
+    }
+    public int[] getSnakeY() {
+        return y.clone();
+    }
+    public int getBodyParts() {
+        return bodyParts;
+    }
+    public int getApplesEaten() {
+        return applesEaten;
+    }
+    public int getAppleX() {
+        return appleX;
+    }
+    public int getAppleY() {
+        return appleY;
+    }
+    public char getDirection() {
+        return direction;
+    }
+    public boolean isRunning() {
+        return running;
+    }
+    public Timer getTimer() {
+        return new Timer(timer.getDelay(), new GamePanel());
+    }
+    // Do we even need this?
+    public Random getRandom() {
+        return random;
+    }
+    public int getHighScore() {
+        return highScore;
+    }
+    // SETTERS:
+    public void setBodyParts(int bodyParts) {
+        this.bodyParts = bodyParts;
+    }
+    public void setSnakeX(int[] x) {
+        if (x.length != this.x.length) {
+            throw new IllegalArgumentException("Array length must be " + this.x.length);
+        }
+        for (int i = 0; i < x.length; i++) {
+            this.x[i] = x[i];
+        }
+    }
+    public void setSnakeY(int[] y) {
+        if (y.length != this.y.length) {
+            throw new IllegalArgumentException("Array length must be " + this.y.length);
+        }
+        for (int i = 0; i < y.length; i++) {
+            this.y[i] = y[i];
+        }
+    }
+    public void setAppleX(int appleX) {
+        this.appleX = appleX;
+    }
+    public void setAppleY(int appleY) {
+        this.appleY = appleY;
+    }
+
 
     /*
         This method starts the game by setting the running variable to true, creating a new apple, and starting the timer
