@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements ActionListener {
     Timer timer;
     Random random;
     int highScore = 0;
+    boolean gameStarted = false;
 
     /*
         This is the constructor for the GamePanel class
@@ -126,16 +127,18 @@ public class GamePanel extends JPanel implements ActionListener {
         This method starts the game by setting the running variable to true, creating a new apple, and starting the timer
     */
     public void startGame() {
-        newApple();
-        running = true;
-        timer = new Timer(DELAY, this);
-        timer.start();
-        bodyParts = 6;
-        applesEaten = 0;
-        direction = 'R';
-        for (int i = 0; i < bodyParts; i++) {
-            x[i] = 0;
-            y[i] = 0;
+        if (gameStarted) {
+            newApple();
+            running = true;
+            timer = new Timer(DELAY, this);
+            timer.start();
+            bodyParts = 6;
+            applesEaten = 0;
+            direction = 'R';
+            for (int i = 0; i < bodyParts; i++) {
+                x[i] = 0;
+                y[i] = 0;
+            }
         }
     }
 
@@ -173,8 +176,27 @@ public class GamePanel extends JPanel implements ActionListener {
                 }
             }
         } else {
-            gameOver(g);
+            if (!gameStarted) {
+                displayControls(g);
+            } else {
+                gameOver(g);
+            }
         }
+    }
+
+    /*
+        This method displays the controls for the game
+    */
+    public void displayControls(Graphics g) {
+        g.setColor(Color.white);
+        g.setFont(new Font("Ink Free", Font.BOLD, 20));
+        g.drawString("Controls:", 20, 20);
+        g.drawString("Arrow keys to move", 20, 50);
+        g.drawString("P to pause/resume", 20, 80);
+        g.drawString("S to slow down", 20, 110);
+        g.drawString("D to speed up", 20, 140);
+        g.drawString("F for fullscreen", 20, 170);
+        g.drawString("Press SPACE to start", 20, 200);
     }
 
     /*
@@ -355,9 +377,12 @@ public class GamePanel extends JPanel implements ActionListener {
                         direction = 'D';
                     }
                     break;
-                // if space is pressed, the game will restart
+                // if space is pressed, the game will start
                 case KeyEvent.VK_SPACE:
-                    if (!running) {
+                    if (!running && !gameStarted) {
+                        gameStarted = true;
+                        startGame();
+                    } else if (!running) {
                         startGame();
                     }
                     break;
